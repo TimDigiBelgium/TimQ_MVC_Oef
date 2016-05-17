@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TimQ_MVC_Oef.Models.Component>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Zoeken op naam: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+        <input type="submit" value="Find" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Categorie.Naam)*@
+            @*<label for="model.Categorie.Naam" class="control-label">Categorie</label>*@
+            @Html.ActionLink("Categorie", "Index", new { Sorting_Order = ViewBag.SortingName })
+           
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSheetLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aantal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aankoopprijs)
+            @*@Html.ActionLink("Aankoopprijs", "Index", new { Sorting_Order = ViewBag.SortingPrice })*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorie.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSheetLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aantal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aankoopprijs)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ComponentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ComponentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ComponentID })
+        </td>
+    </tr>
+}
+
+</table>

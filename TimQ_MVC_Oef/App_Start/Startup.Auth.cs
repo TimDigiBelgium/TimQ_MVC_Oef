@@ -54,9 +54,9 @@ namespace TimQ_MVC_Oef
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "575361125974547",
+               appSecret: "316e1d4be4c113d807b7b91932abd830");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
